@@ -8,7 +8,7 @@ const left_menu = [
   {
     name: 'RankerRater',
     items: [
-      { type: 'entry', button: 'Load' },
+      { type: 'entry', button: 'Load', action: 'load' },
       { type: 'separator', },
       { type: 'entry', button: 'Import' },
       { type: 'entry', button: 'Export' }
@@ -40,7 +40,7 @@ const right_menu = [
   }
 ];
 
-const MenuBar = () => (
+const MenuBar = ({ actions }) => (
   <div
     id='menu-bar'
     style={{
@@ -60,6 +60,7 @@ const MenuBar = () => (
         width: '20%',
       }}
       buttons={left_menu}
+      actions={actions}
     />
     <div id='title-bar'
       style={{
@@ -77,12 +78,13 @@ const MenuBar = () => (
         width: '20%',
       }}
       buttons={right_menu}
+      actions={{}}
     />
   </div>
 );
 
 // TODO: change this so only 1 menu can be open
-const MenuBarSection = ({ div_id, style, buttons }) => (
+const MenuBarSection = ({ div_id, style, buttons, actions }) => (
   <ul
     id={div_id}
     style={{
@@ -100,6 +102,7 @@ const MenuBarSection = ({ div_id, style, buttons }) => (
         name={button.name}
         expand={style.expand}
         items={button.items}
+        actions={actions}
       />
     ))}
   </ul>

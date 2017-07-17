@@ -57,16 +57,16 @@ const menu_item_style = {
     listStyleType: 'none',
     minWidth: '130px',
     whiteSpace: 'nowrap',
-    ':hover': {
-      backgroundColor: 'blue',
-      color: 'white',
-    }
   },
   entry: {
     paddingTop: '3px',
     paddingBottom: '3px',
     paddingLeft: '10px',
     paddingRight: '10px',
+    ':hover': {
+      backgroundColor: 'blue',
+      color: 'white',
+    }
   },
   sep: {
     paddingLeft: '10px',
@@ -74,17 +74,17 @@ const menu_item_style = {
   },
 };
 
-const MenuList = Radium(({ menu_list, visible }) => (
+const MenuList = Radium(({ menu_list, visible, actions }) => (
   <ul style={[ menu_style.base, visible ? menu_style.shown : menu_style.hidden ]} >
-    {menu_list.map((item, i) =>
-       item.type === 'entry' ? <MenuItem key={i} text={item.button} />
+    {menu_list.map((item, i) => item.type === 'entry' ?
+      <MenuItem key={i} text={item.button} action={item.action ? actions[item.action] : () => {} } />
       : <MenuSeparator key={i} />
     )}
   </ul>
 ));
 
-const MenuItem = Radium(({ text }) => (
-  <li style={[ menu_item_style.base, menu_item_style.entry ]}>
+const MenuItem = Radium(({ text, action }) => (
+  <li style={[ menu_item_style.base, menu_item_style.entry ]} onClick={action}>
     {text}
   </li>
 ));
@@ -113,7 +113,11 @@ class Menu extends Component {
         onClick={this.handleClick}
       >
         {this.props.name}
-        <MenuList menu_list={this.props.items} visible={this.state.shown} />
+        <MenuList
+          menu_list={this.props.items}
+          visible={this.state.shown}
+          actions={this.props.actions}
+        />
       </li>
     );
   }
