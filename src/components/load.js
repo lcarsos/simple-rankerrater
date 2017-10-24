@@ -23,21 +23,11 @@ const LoadDeck = ({ actions }) => (
       </textarea>
     </div>
     <div style={{alignSelf: 'flex-end'}} >
-      <button
-        name="cancel"
-        onClick={actions.cancel}
-      >
+      <button name="cancel" onCancelClick={actions.cancel}>
         Cancel
       </button>
       {' '}
-      <button
-        name="upload"
-        onClick={
-          () => {
-            actions.cancel();
-          }
-        }
-      >
+      <button name="upload" onLoadClick={actions.cancel}>
         Upload Carddeck
       </button>
     </div>

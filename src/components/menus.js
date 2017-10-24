@@ -3,90 +3,27 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-const menu_button_style = {
-  base: {
-    alignItems: 'center',
-    backgroundColor: 'white',
-    cursor: 'default',
-    display: 'flex',
-    listStyleType: 'none',
-    paddingTop: '3px',
-    paddingRight: '10px',
-    paddingBottom: '3px',
-    paddingLeft: '10px',
-    position: 'relative',
-    marginTop: '0',
-    marginRight: '0',
-    marginBottom: '0',
-    marginLeft: '0',
-    userSelect: 'none',
-    ':hover': {
-      backgroundColor: 'blue',
-      color: 'white'
-    }
-  },
-};
-const menu_style = {
-  base: {
-    backgroundColor: 'white',
-    border: '1px solid lightgrey',
-    color: 'black',
-    margin: 0,
-    paddingTop: '3px',
-    paddingRight: 0,
-    paddingBottom: '3px',
-    paddingLeft: 0,
-
-    position: 'absolute',
-    left: 0,
-    top: '24px',
-  },
-  hidden: {
-    display: 'none',
-    opacity: 0,
-    visibility: 'hidden',
-  },
-  shown: {
-    opacity: 1,
-    visibility: 'visible',
-  }
-};
-
-const menu_item_style = {
-  base: {
-    listStyleType: 'none',
-    minWidth: '130px',
-    whiteSpace: 'nowrap',
-  },
-  entry: {
-    paddingTop: '3px',
-    paddingBottom: '3px',
-    paddingLeft: '10px',
-    paddingRight: '10px',
-    ':hover': {
-      backgroundColor: 'blue',
-      color: 'white',
-    }
-  },
-  sep: {
-    paddingLeft: '10px',
-    paddingRight: '10px',
-  },
-};
+import { menu_button_style, menu_style, menu_item_style } from './menu/style';
+import MenuItem from '../containers/menuitem';
 
 const MenuList = Radium(({ menu_list, visible, actions }) => (
   <ul style={[ menu_style.base, visible ? menu_style.shown : menu_style.hidden ]} >
-    {menu_list.map((item, i) => item.type === 'entry' ?
-      <MenuItem key={i} text={item.button} action={item.action ? actions[item.action] : () => {} } />
-      : <MenuSeparator key={i} />
-    )}
+    {menu_list.map((item, i) => {
+      switch (item.type) {
+        case 'entry':
+          return (
+            <MenuItem
+              key={i}
+              text={item.button}
+              onClick={item.action != null ? item.action : () => {} }
+            />);
+        case 'separator':
+          return <MenuSeparator key={i} />;
+        default:
+          return null;
+      }
+    })}
   </ul>
-));
-
-const MenuItem = Radium(({ text, action }) => (
-  <li style={[ menu_item_style.base, menu_item_style.entry ]} onClick={action}>
-    {text}
-  </li>
 ));
 
 const MenuSeparator = Radium(() => (

@@ -2,13 +2,14 @@
 
 import React from 'react';
 
+import { showLoadModal } from '../actions/modal';
 import Menu from './menus';
 
 const left_menu = [
   {
     name: 'RankerRater',
     items: [
-      { type: 'entry', button: 'Load', action: 'load' },
+      { type: 'entry', button: 'Load', action: showLoadModal },
       { type: 'separator', },
       { type: 'entry', button: 'Import' },
       { type: 'entry', button: 'Export' }
