@@ -11,7 +11,7 @@ const initial_state = {};
 
 render(
   <Provider store={createStore(reducer)}>
-    <RankerRater carddeck={initial_state} />
+    <RankerRater />
   </Provider>,
   document.getElementById('root')
 );

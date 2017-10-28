@@ -8,12 +8,12 @@ import loadModal from '../components/loadModal';
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch) => {
-  onLoadClick: () => {
+const mapDispatchToProps = (dispatch) => ({
+  onLoadClick: (deck) => {
     dispatch(replaceDeck(deck));
     dispatch(hideModal());
   }
-};
+});
 
 const LoadModal = connect(
   mapStateToProps,

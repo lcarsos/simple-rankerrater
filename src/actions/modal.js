@@ -7,7 +7,6 @@ export const showModal = (content) => ({
 });
 
 export const showLoadModal = () => {
-  console.log('in showLoadModal');
   return {
     type: SHOW_MODAL,
     content: 'load'

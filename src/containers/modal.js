@@ -26,9 +26,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 let Modal = ({ visible, content, actions }) => {
-  console.log('rendering modal');
-  console.log(`visible: ${visible}`);
-  console.log(`contents: ${content}`);
   if (!visible) {
     return null;
   }
