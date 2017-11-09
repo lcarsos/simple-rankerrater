@@ -2,8 +2,10 @@
 
 import { combineReducers } from 'redux';
 
-import { REPLACE_DECK } from '../actions/deck';
-import { SHOW_MODAL, HIDE_MODAL } from '../actions/modal';
+import { REPLACE_DECK } from 'actions/deck';
+import { SHOW_MODAL, HIDE_MODAL } from 'actions/modal';
+
+import descriptorizer from './descriptorizer';
 
 const deck = (state = [], action) => {
   switch (action.type) {
@@ -30,7 +32,9 @@ const modal = (state = {visible: false, content: ''}, action) => {
       return state;
   }
 };
+
 export default combineReducers({
   deck,
-  modal
+  descriptorizer,
+  modal,
 });
