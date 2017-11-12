@@ -2,6 +2,10 @@
 
 import React from 'react';
 import Radium from 'radium';
+import { connect } from 'react-redux';
+
+import { showDescriptorizer } from 'descriptorizer/actions';
+import { COMPARE_TWO, PICK_FIVE } from 'descriptorizer/constants';
 
 const style = {
   base: {
@@ -29,11 +33,19 @@ const style = {
   }
 };
 
-const Chooserater = ({ actions }) => (
+const Chooserater = Radium(({ actions }) => (
   <div style={style.container}>
     <div key={1} style={style.base} onClick={actions.compareTwo}>A/B</div>
     <div key={2} style={style.base} onClick={actions.pickFive}>Pick 5</div>
   </div>
-);
+));
+export const Component = Chooserater;
 
-export default Radium(Chooserater);
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    compareTwo: () => dispatch(showDescriptorizer(COMPARE_TWO)),
+    pickFive: () => dispatch(showDescriptorizer(PICK_FIVE)),
+  }
+});
+
+export default connect(undefined, mapDispatchToProps)(Chooserater);

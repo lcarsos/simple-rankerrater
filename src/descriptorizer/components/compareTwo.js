@@ -1,9 +1,22 @@
 'use strict';
 
+import { React } from 'react';
 import { connect } from 'react-redux';
 
-import { addRankDescriptor } from 'actions/rank';
-import CompareTwo from 'components/descriptorizers/compareTwo';
+import { addRankDescriptor } from 'rank/actions';
+
+const CompareTwo = ({ cards, actions }) => (
+  <div>
+    <h1>Which is better?</h1>
+    <div onClick={actions.chooseA}>
+      {cards[0].name}
+    </div>
+    <div onClick={actions.chooseB}>
+      {cards[1].name}
+    </div>
+  </div>
+);
+export const Component = CompareTwo;
 
 const mapStateToProps = (state) => ({
   deck: state.deck,
