@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 import MenuBar from 'menubar/components';
 import WorkMat from './workmat';
-import Modal from '../containers/modal';
+import Modal from 'modal/components/modal';
 
 class RankerRater extends Component {
   render() {

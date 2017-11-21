@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux';
 
-import { REPLACE_DECK } from 'actions/deck';
+import { REPLACE_DECK } from 'impexp/constants';
 import { SHOW_MODAL, HIDE_MODAL } from 'modal/constants';
 
 import descriptorizer from './descriptorizer';
