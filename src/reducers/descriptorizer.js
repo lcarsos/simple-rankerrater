@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_DESCRIPTORIZER } from 'actions/descriptorizer';
+import { SHOW_DESCRIPTORIZER } from 'descriptorizer/constants';
 
 const descriptorizer = (state = {shown: ''}, action) => {
   switch (action.type) {

@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { hideModal } from '../actions/modal';
+import { hideModal } from 'modal/actions';
 import { replaceDeck } from '../actions/deck';
 import ModalComponent from '../components/modal';
 import LoadDeck from '../components/load';

@@ -3,7 +3,7 @@
 import { React } from 'react';
 import { connect } from 'react-redux';
 
-import { addRankDescriptor } from 'rank/actions';
+import { addRankDescriptor } from 'actions/rank';
 
 const CompareTwo = ({ cards, actions }) => (
   <div>

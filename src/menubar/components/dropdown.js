@@ -3,10 +3,10 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import { menu_button_style, menu_style, menu_item_style } from './menu/style';
-import MenuItem from '../containers/menuitem';
+import { menu_button_style, menu_style, menu_item_style } from './style';
+import MenuItem from './menuitem';
 
-const MenuList = Radium(({ menu_list, visible, actions }) => (
+const MenuList = Radium( ({ menu_list, visible, actions }) => (
   <ul style={[ menu_style.base, visible ? menu_style.shown : menu_style.hidden ]} >
     {menu_list.map((item, i) => {
       switch (item.type) {
@@ -59,4 +59,4 @@ class Menu extends Component {
     );
   }
 }
-export default Menu = Radium(Menu);
+export default Radium(Menu);

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import MenuBar from './menubar';
+import MenuBar from 'menubar/components';
 import WorkMat from './workmat';
 import Modal from '../containers/modal';
 

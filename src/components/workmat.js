@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Descriptorizer from 'containers/descriptorizers/descriptorizer';
+import Descriptorizer from 'descriptorizer/components';
 import RankList from './rankList';
 
 const WorkMat = () => (
