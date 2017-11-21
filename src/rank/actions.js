@@ -1,6 +1,6 @@
 'use strict';
 
-export const ADD_RANK_DESCRIPTOR = 'ADD_RANK_DESCRIPTOR';
+import { ADD_RANK_DESCRIPTOR } from './actions';
 
 /**
  * This generates a Rank Description, which will be used to build a stronger

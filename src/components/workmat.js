@@ -3,7 +3,7 @@
 import React from 'react';
 
 import Descriptorizer from 'descriptorizer/components';
-import RankList from './rankList';
+import RankList from 'rank/components/ranklist';
 
 const WorkMat = () => (
   <div id="workmat" style={{
