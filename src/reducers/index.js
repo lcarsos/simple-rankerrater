@@ -1,37 +1,10 @@
-"use strict";
+'use strict';
 
 import { combineReducers } from 'redux';
 
-import { REPLACE_DECK } from 'impexp/constants';
-import { SHOW_MODAL, HIDE_MODAL } from 'modal/constants';
-
+import deck from './deck';
 import descriptorizer from './descriptorizer';
-
-const deck = (state = [], action) => {
-  switch (action.type) {
-    case REPLACE_DECK:
-      return action.deck;
-    default:
-      return state;
-  }
-};
-
-const modal = (state = {visible: false, content: ''}, action) => {
-  switch (action.type) {
-    case SHOW_MODAL:
-      return {
-        visible: true,
-        content: action.content,
-      };
-    case HIDE_MODAL:
-      return {
-        visible: false,
-        content: '',
-      };
-    default:
-      return state;
-  }
-};
+import modal from './modal';
 
 export default combineReducers({
   deck,
