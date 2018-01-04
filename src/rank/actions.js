@@ -1,6 +1,6 @@
 'use strict';
 
-import { ADD_RANK_DESCRIPTOR } from './actions';
+import { ADD_RANK_DESCRIPTOR } from './constants';
 
 /**
  * This generates a Rank Description, which will be used to build a stronger

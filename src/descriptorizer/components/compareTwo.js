@@ -1,37 +1,46 @@
 'use strict';
 
-import { React } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { addRankDescriptor } from 'rank/actions';
+import { showDescriptorizer } from 'descriptorizer/actions';
+import { CHOOSERATER } from 'descriptorizer/constants';
 
-const CompareTwo = ({ cards, actions }) => (
+const CompareTwo = ({ cards, dispatch }) =>
   <div>
     <h1>Which is better?</h1>
-    <div onClick={actions.chooseA}>
+    <div onClick={ () => {
+      dispatch(addRankDescriptor(
+        cards[0].idx,
+        cards[1].idx
+      ));
+      dispatch(showDescriptorizer(CHOOSERATER));
+    } }>
       {cards[0].name}
     </div>
-    <div onClick={actions.chooseB}>
+    <div onClick={ () => {
+      dispatch(addRankDescriptor(
+        cards[1].idx,
+        cards[0].idx
+      ));
+      dispatch(showDescriptorizer(CHOOSERATER));
+    } }>
       {cards[1].name}
     </div>
-  </div>
-);
+  </div>;
 export const Component = CompareTwo;
 
-const mapStateToProps = (state) => ({
-  deck: state.deck,
-  cards: getCardIds(state, 2),
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const [ idA, idB ] = ownProps.cardIds;
-
-  return {
-    actions: {
-      chooseA: () => dispatch(addRankDescriptor(idA, idB)),
-      chooseB: () => dispatch(addRankDescriptor(idB, idA)),
-    }
-  };
+CompareTwo.propTypes = {
+  cards: PropTypes.arrayOf( PropTypes.shape({
+    idx: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }) ).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CompareTwo);
+const mapStateToProps = (state) => ({
+  cards: state.descriptorizer.cards.map( idx => ({ idx, name: state.deck[ idx ] }) ),
+});
+
+export default connect(mapStateToProps)(CompareTwo);

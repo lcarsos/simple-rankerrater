@@ -2,15 +2,21 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+
 import RankerRater from 'app/components/rankerrater';
 import reducer from 'reducers';
-
-const initial_state = {};
+import cardPicker from 'cardpicker';
 
 render(
-  <Provider store={createStore(reducer)}>
+  <Provider store={
+    createStore(
+      reducer,
+      undefined,
+      applyMiddleware(cardPicker)
+    )
+  }>
     <RankerRater />
   </Provider>,
   document.getElementById('root')

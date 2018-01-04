@@ -1,12 +1,24 @@
 'use strict';
 
-import { SHOW_DESCRIPTORIZER } from 'descriptorizer/constants';
+import { SHOW_DESCRIPTORIZER, SET_DESCRIPTORIZER_CARDS } from 'descriptorizer/constants';
 
-const descriptorizer = (state = {shown: ''}, action) => {
+const default_state = {
+  shown: '',
+  cards: [],
+};
+
+const descriptorizer = (state = default_state, action) => {
   switch (action.type) {
     case SHOW_DESCRIPTORIZER:
       return {
-        shown: action.descriptorizer
+        ...state,
+        shown: action.descriptorizer,
+        cards: action.cards
+      };
+    case SET_DESCRIPTORIZER_CARDS:
+      return {
+        ...state,
+        cards: action.cards,
       };
     default:
       return state;
