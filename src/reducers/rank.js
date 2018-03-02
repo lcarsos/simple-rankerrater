@@ -1,5 +1,7 @@
 'use strict';
 
+import { getCards } from 'selectors';
+
 import { ADD_RANK_DESCRIPTOR } from 'rank/constants';
 import { REPLACE_DECK } from 'impexp/constants';
 
@@ -28,6 +30,11 @@ const nodes = (state = {}, [idA, idB]) => ({
 
 const inSubgraph = id => subgraph => subgraph[1].indexOf( id ) > -1;
 
+// TODO
+const linearize = state => (a, b) => {
+  return a - b;
+};
+
 const rank = (state = default_state, action) => {
   switch (action.type) {
     case ADD_RANK_DESCRIPTOR: {
@@ -54,7 +61,7 @@ const rank = (state = default_state, action) => {
               if ( key === labelA ) {
                 return {
                   ...labels,
-                  [key]: val.concat( state.labels[labelB] ).sort(),
+                  [key]: val.concat( state.labels[labelB] ).sort( linearize(state) ),
                 };
               } else if ( key === labelB ) {
                 return labels;
@@ -86,5 +93,18 @@ const rank = (state = default_state, action) => {
       return state;
   }
 };
+
+export const getRankedCards = (state) =>
+  Object.values(state.rank.labels)
+    .filter( subgraph => subgraph.length > 1 )
+    .sort( (a, b) => b.length - a.length )
+    .map( subgraph => getCards(state, subgraph) );
+
+export const getUnrankedCards = (state) => getCards(
+  state,
+  Object.values(state.rank.labels)
+    .filter( subgraph => subgraph.length === 1 )
+    .map( node => node[0] )
+);
 
 export default rank;

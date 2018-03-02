@@ -11,4 +11,7 @@ const deck = (state = [], action) => {
   }
 };
 
+export const getCard = (state, id) => state.deck[id];
+export const getCards = (state, ids) => ids.map( id => getCard(state, id) );
+
 export default deck;
