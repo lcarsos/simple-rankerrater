@@ -1,5 +1,7 @@
 'use strict';
 
+import _ from 'lodash';
+
 import { getCards } from 'selectors';
 
 import { ADD_RANK_DESCRIPTOR } from 'rank/constants';
@@ -30,9 +32,41 @@ const nodes = (state = {}, [idA, idB]) => ({
 
 const inSubgraph = id => subgraph => subgraph[1].indexOf( id ) > -1;
 
+const includesAllOf = (list, arr) => {
+  for (let to of arr) {
+    if (!list.includes(to)) return false;
+  }
+  return true;
+};
+
 // TODO
-const linearize = state => (a, b) => {
-  return a - b;
+const linearize = (graph, nodes) => {
+  const coincident_nodes = nodes.filter( id => graph.node[id].in.length > 1 );
+  let branches = nodes
+    .filter( id => graph.node[id].in.length === 0 )
+    .reduce(
+      (a, v) => a.concat(graph.edge.filter(
+        [from, to] => v === from
+      ),
+      []
+    ));
+
+  let list = [];
+  let branch = 0;
+  do {
+    const [from, to] = branches[branch];
+    list.concat(from);
+    if (
+      coincident_nodes.includes(to) && // Check we're on a join_op
+      _.isEqual(branches[branch], [_.last(graph.node[to].in), to]) && // Check we're on the last branch
+      includesAll(branches, graph.node[from].out) // Check we've gathered all branches
+    ) {
+      branch += 1;
+    }
+
+  } while (branches.length > 0);
+
+  return list;
 };
 
 const rank = (state = default_state, action) => {
@@ -61,7 +95,7 @@ const rank = (state = default_state, action) => {
               if ( key === labelA ) {
                 return {
                   ...labels,
-                  [key]: val.concat( state.labels[labelB] ).sort( linearize(state) ),
+                  [key]: linearize( graph, val.concat(state.labels[labelB]) )
                 };
               } else if ( key === labelB ) {
                 return labels;
