@@ -54,7 +54,7 @@
     "no-unused-expressions": 2,
     "no-with": 2,
     "consistent-return": 2,
-    "curly": [2, "all"],
+    "curly": [2, "multi-line"],
     "dot-notation": [2, { "allowKeywords": true }],
     "eol-last": 2,
     "no-extra-parens": [2, "functions"],
