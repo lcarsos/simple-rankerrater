@@ -1,6 +1,6 @@
 {
   "name": "simple-rankerrater",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple one-page webapp to help rank a list",
   "main": "index.js",
   "scripts": {
@@ -20,66 +20,12 @@
   },
   "homepage": "https://github.com/lcarsos/simple-rankerrater#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-minify": "^0.3.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-es2015-classes": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-babili": "^0.1.4",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-minify": "^0.3.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "radium": "^0.19.1",
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "watchify": "^3.9.0"
-  },
-  "babel": {
-    "env": {
-      "production": {
-        "presets": [
-          "minify"
-        ]
-      }
-    },
-    "plugins": [
-      "add-module-exports",
-      "transform-decorators-legacy",
-      "transform-es2015-classes",
-      "transform-es2015-modules-commonjs",
-      [
-        "transform-object-rest-spread",
-        {
-          "useBuiltins": true
-        }
-      ]
-    ],
-    "presets": [
-      "es2016",
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "Firefox >= 52",
-              "Chrome >= 55",
-              "Safari >= 10"
-            ]
-          }
-        }
-      ],
-      "react",
-      "stage-3"
-    ]
+    "redux": "^3.7.2"
   }
 }
