@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "A simple one-page webapp to help rank a list",
   "main": "index.js",
+  "browserslist": "Last 3 firefox versions, last 3 chrome versions, >0.2% and last 3 years",
   "scripts": {
     "build-dev": "NODE_PATH=$NODE_PATH:$PWD/src browserify -t [ babelify --global ] src/index.js -o build/bundle.js --debug",
     "build": "NODE_PATH=$NODE_PATH:$PWD/src BABEL_ENV=production NODE_ENV=production browserify -t [ babelify --global ] src/index.js -o build/bundle.js",
@@ -23,9 +24,9 @@
     "parcel": "^2.2.1"
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2"
   }
 }
