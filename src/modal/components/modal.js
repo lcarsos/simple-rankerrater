@@ -1,7 +1,6 @@
 "use strict";
 
 import React from 'react';
-import Radium from 'radium';
 import { connect } from 'react-redux';
 
 import { hideModal } from '../actions.js';
@@ -20,11 +19,11 @@ const modal_style = {
   }
 };
 
-export const ModalComponent = Radium( ({ children }) => (
+export const ModalComponent = ({ children }) => (
   <div style={[modal_style.base]}>
     {children}
   </div>
-));
+);
 
 export const Modal = ({ visible, content, actions }) => {
   if (!visible) {

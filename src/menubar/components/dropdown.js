@@ -1,12 +1,11 @@
 "use strict";
 
 import React, { Component } from 'react';
-import Radium from 'radium';
 
 import { menu_button_style, menu_style, menu_item_style } from './style.js';
 import MenuItem from './menuitem.js';
 
-const MenuList = Radium( ({ menu_list, visible, actions }) => (
+const MenuList = ({ menu_list, visible, actions }) => (
   <ul style={[ menu_style.base, visible ? menu_style.shown : menu_style.hidden ]} >
     {menu_list.map((item, i) => {
       switch (item.type) {
@@ -24,13 +23,13 @@ const MenuList = Radium( ({ menu_list, visible, actions }) => (
       }
     })}
   </ul>
-));
+);
 
-const MenuSeparator = Radium(() => (
+const MenuSeparator = () => (
   <li style={[ menu_item_style.base, menu_item_style.sep ]}>
     <hr />
   </li>
-));
+);
 
 class Menu extends Component {
   constructor(props) {
@@ -59,4 +58,4 @@ class Menu extends Component {
     );
   }
 }
-export default Radium(Menu);
+export default Menu;

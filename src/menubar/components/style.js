@@ -17,10 +17,11 @@ export const menu_button_style = {
     marginBottom: '0',
     marginLeft: '0',
     userSelect: 'none',
-    ':hover': {
-      backgroundColor: 'blue',
-      color: 'white'
-    }
+    // TODO: find a Radium replacement for React 17
+    //':hover': {
+    //  backgroundColor: 'blue',
+    //  color: 'white'
+    //}
   },
 };
 
@@ -61,10 +62,11 @@ export const menu_item_style = {
     paddingBottom: '3px',
     paddingLeft: '10px',
     paddingRight: '10px',
-    ':hover': {
-      backgroundColor: 'blue',
-      color: 'white',
-    }
+    // TODO: find a Radium replacement for React 17
+    //':hover': {
+    //  backgroundColor: 'blue',
+    //  color: 'white',
+    //}
   },
   sep: {
     paddingLeft: '10px',

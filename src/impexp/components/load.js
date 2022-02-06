@@ -1,7 +1,6 @@
 "use strict";
 
 import React, { Component } from 'react';
-import Radium from 'radium';
 
 const load_style = {
   base: {
@@ -60,4 +59,4 @@ class LoadDeck extends Component {
   }
 }
 
-export default Radium(LoadDeck);
+export default LoadDeck;

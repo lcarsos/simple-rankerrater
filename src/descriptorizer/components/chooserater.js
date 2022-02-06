@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Radium from 'radium';
 import { connect } from 'react-redux';
 
 import { showDescriptorizer } from '/src/descriptorizer/actions.js';
@@ -19,10 +18,11 @@ const style = {
     height: '130px',
     margin: '5px',
     width: '130px',
-    ':hover': {
-      backgroundColor: 'lightgrey',
-      cursor: 'pointer',
-    }
+    // TODO: find a Radium replacement for React 17
+    //':hover': {
+    //  backgroundColor: 'lightgrey',
+    //  cursor: 'pointer',
+    //}
   },
   container: {
     alignItems: 'center',
@@ -33,12 +33,12 @@ const style = {
   }
 };
 
-const Chooserater = Radium(({ actions }) => (
+const Chooserater = ({ actions }) => (
   <div style={style.container}>
     <div key={1} style={style.base} onClick={actions.compareTwo}>A/B</div>
     <div key={2} style={style.base} onClick={actions.pickFive}>Pick 5</div>
   </div>
-));
+);
 export const Component = Chooserater;
 
 const mapDispatchToProps = (dispatch) => ({
