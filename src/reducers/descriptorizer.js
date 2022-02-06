@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_DESCRIPTORIZER, SET_DESCRIPTORIZER_CARDS } from 'descriptorizer/constants';
+import { SHOW_DESCRIPTORIZER, SET_DESCRIPTORIZER_CARDS } from '/src/descriptorizer/constants.js';
 
 const default_state = {
   shown: '',

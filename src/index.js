@@ -5,9 +5,9 @@ import { render } from 'react-dom';
 import { applyMiddleware, createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 
-import RankerRater from 'app/components/rankerrater';
-import reducer from 'reducers';
-import cardPicker from 'cardpicker';
+import RankerRater from './app/components/rankerrater';
+import reducer from './reducers';
+import cardPicker from './cardpicker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

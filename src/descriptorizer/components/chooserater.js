@@ -4,8 +4,8 @@ import React from 'react';
 import Radium from 'radium';
 import { connect } from 'react-redux';
 
-import { showDescriptorizer } from 'descriptorizer/actions';
-import { COMPARE_TWO, PICK_FIVE } from 'descriptorizer/constants';
+import { showDescriptorizer } from '/src/descriptorizer/actions.js';
+import { COMPARE_TWO, PICK_FIVE } from '/src/descriptorizer/constants.js';
 
 const style = {
   base: {

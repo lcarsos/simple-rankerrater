@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getRankedCards, getUnrankedCards } from 'selectors';
+import { getRankedCards, getUnrankedCards } from '/src/selectors.js';
 
 const RankList = ({ ranked, unranked }) => (
   <div>

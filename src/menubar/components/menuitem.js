@@ -4,7 +4,7 @@ import React from 'react';
 import Radium from 'radium';
 import { connect } from 'react-redux';
 
-import { menu_item_style } from './style';
+import { menu_item_style } from './style.js';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => { dispatch(ownProps.onClick()); }

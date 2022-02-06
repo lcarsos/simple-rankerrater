@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_MODAL, HIDE_MODAL } from 'modal/constants';
+import { SHOW_MODAL, HIDE_MODAL } from '/src/modal/constants.js';
 
 const modal = (state = {visible: false, content: ''}, action) => {
   switch (action.type) {

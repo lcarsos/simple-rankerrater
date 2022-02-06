@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_DESCRIPTORIZER, SET_DESCRIPTORIZER_CARDS } from './constants';
+import { SHOW_DESCRIPTORIZER, SET_DESCRIPTORIZER_CARDS } from './constants.js';
 
 export const showDescriptorizer = (descriptorizer) => ({
   type: SHOW_DESCRIPTORIZER,

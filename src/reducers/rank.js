@@ -1,9 +1,9 @@
 'use strict';
 
-import { getCards } from 'selectors';
+import { getCards } from '/src/selectors.js';
 
-import { ADD_RANK_DESCRIPTOR } from 'rank/constants';
-import { REPLACE_DECK } from 'impexp/constants';
+import { ADD_RANK_DESCRIPTOR } from '/src/rank/constants.js';
+import { REPLACE_DECK } from '/src/impexp/constants.js';
 
 const default_node = {
   in: [],

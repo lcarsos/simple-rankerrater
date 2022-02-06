@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_MODAL, HIDE_MODAL } from './constants';
+import { SHOW_MODAL, HIDE_MODAL } from './constants.js';
 
 export const showModal = (content) => ({
   type: SHOW_MODAL,

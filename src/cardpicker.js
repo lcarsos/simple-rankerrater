@@ -1,6 +1,6 @@
 'use strict';
 
-import { SHOW_DESCRIPTORIZER, COMPARE_TWO, PICK_FIVE } from 'descriptorizer/constants';
+import { SHOW_DESCRIPTORIZER, COMPARE_TWO, PICK_FIVE } from '/src/descriptorizer/constants.js';
 
 const numberPicker = (upperRange) => () => Math.floor( Math.random() * upperRange );
 

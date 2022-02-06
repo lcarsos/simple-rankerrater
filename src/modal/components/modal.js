@@ -4,9 +4,9 @@ import React from 'react';
 import Radium from 'radium';
 import { connect } from 'react-redux';
 
-import { hideModal } from 'modal/actions';
-import { replaceDeck } from 'impexp/actions';
-import LoadDeck from 'impexp/components/load';
+import { hideModal } from '../actions.js';
+import { replaceDeck } from '/src/impexp/actions.js';
+import LoadDeck from '/src/impexp/components/load.js';
 
 const modal_style = {
   base: {

@@ -4,9 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addRankDescriptor } from 'rank/actions';
-import { showDescriptorizer } from 'descriptorizer/actions';
-import { CHOOSERATER } from 'descriptorizer/constants';
+import { addRankDescriptor } from '/src/rank/actions.js';
+import { showDescriptorizer } from '../actions.js';
+import { CHOOSERATER } from '../constants.js';
 
 const CompareTwo = ({ cards, dispatch }) =>
   <div>

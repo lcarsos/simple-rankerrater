@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import { menu_button_style, menu_style, menu_item_style } from './style';
-import MenuItem from './menuitem';
+import { menu_button_style, menu_style, menu_item_style } from './style.js';
+import MenuItem from './menuitem.js';
 
 const MenuList = Radium( ({ menu_list, visible, actions }) => (
   <ul style={[ menu_style.base, visible ? menu_style.shown : menu_style.hidden ]} >

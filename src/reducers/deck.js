@@ -1,6 +1,6 @@
 'use strict';
 
-import { REPLACE_DECK } from 'impexp/constants';
+import { REPLACE_DECK } from '/src/impexp/constants.js';
 
 const deck = (state = [], action) => {
   switch (action.type) {

@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { showLoadModal } from 'modal/actions';
-import Menu from './dropdown';
+import { showLoadModal } from '/src/modal/actions.js';
+import Menu from './dropdown.js';
 
 const left_menu = [
   {

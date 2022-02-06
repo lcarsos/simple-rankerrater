@@ -3,10 +3,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { COMPARE_TWO } from 'descriptorizer/constants';
+import { COMPARE_TWO } from '../constants.js';
 
-import Chooserater from './chooserater';
-import CompareTwo from './compareTwo';
+import Chooserater from './chooserater.js';
+import CompareTwo from './compareTwo.js';
 
 const Descriptorizer = ({ descriptorizer }) => {
   switch (descriptorizer) {

@@ -1,6 +1,6 @@
 'use strict';
 
-import { ADD_RANK_DESCRIPTOR } from './constants';
+import { ADD_RANK_DESCRIPTOR } from './constants.js';
 
 /**
  * This generates a Rank Description, which will be used to build a stronger

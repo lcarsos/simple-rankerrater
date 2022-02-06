@@ -2,10 +2,10 @@
 
 import { combineReducers } from 'redux';
 
-import deck from './deck';
-import descriptorizer from './descriptorizer';
-import modal from './modal';
-import rank from './rank';
+import deck from './deck.js';
+import descriptorizer from './descriptorizer.js';
+import modal from './modal.js';
+import rank from './rank.js';
 
 export default combineReducers({
   deck,
