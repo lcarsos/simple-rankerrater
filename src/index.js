@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 
@@ -19,7 +20,9 @@ render(
       composeEnhancers( applyMiddleware( cardPicker ) )
     )
   }>
-    <RankerRater />
+    <BrowserRouter>
+      <RankerRater />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

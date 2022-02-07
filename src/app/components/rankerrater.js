@@ -1,9 +1,13 @@
 "use strict";
 
 import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import WorkMat from './workmat.js';
-import Modal from '/src/modal/components/modal.js';
+import Home from './home.js';
+import Rank from './rank.js';
+import List from './list.js';
+//import WorkMat from './workmat.js';
+//import Modal from '/src/modal/components/modal.js';
 
 class RankerRater extends Component {
   render() {
@@ -13,8 +17,11 @@ class RankerRater extends Component {
           fontFamily: 'Arial, sans-serif',
         }}
       >
-        <WorkMat />
-        <Modal />
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+          <Route path="/rank" element={ <Rank /> } />
+          <Route path="/list" element={ <List /> } />
+        </Routes>
       </div>
     );
   }

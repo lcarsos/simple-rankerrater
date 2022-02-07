@@ -29,13 +29,13 @@ class LoadDeck extends Component {
   }
 
   handleSubmit() {
-    let deck = this.state.value.split(/\r?\n/);
+    let deck = JSON.parse(this.state.value);
     this.props.actions.upload(deck);
   }
 
   render() {
     return (
-      <div id="load" style={[load_style.base]}>
+      <div id="load" style={load_style.base}>
         <div>
           <textarea
             placeholder='Paste a csv here'
@@ -46,10 +46,6 @@ class LoadDeck extends Component {
           />
         </div>
         <div style={{alignSelf: 'flex-end'}} >
-          <button name="cancel" onClick={this.props.actions.cancel}>
-            Cancel
-          </button>
-          {' '}
           <button name="upload" onClick={this.handleSubmit}>
             Upload Carddeck
           </button>
