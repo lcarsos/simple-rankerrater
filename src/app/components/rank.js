@@ -1,14 +1,13 @@
 "use strict";
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import CompareTwo from '/src/descriptorizer/components/compareTwo.js';
 
 class Rank extends Component {
   render() {
     return (
-      <div>
-        Rank
-      </div>
+      <CompareTwo />
     );
   }
 }

@@ -1,6 +1,10 @@
 "use strict";
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { replaceDeck } from '../actions.js';
+import { REPLACE_DECK } from '../constants.js';
 
 const load_style = {
   base: {
@@ -14,6 +18,12 @@ const load_style = {
     justifyContent: 'space-between',
   }
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    upload: deck => dispatch(replaceDeck(deck)),
+  },
+});
 
 class LoadDeck extends Component {
   constructor(props) {
@@ -55,4 +65,4 @@ class LoadDeck extends Component {
   }
 }
 
-export default LoadDeck;
+export default connect(undefined, mapDispatchToProps)(LoadDeck);

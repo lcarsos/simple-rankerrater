@@ -1,16 +1,21 @@
 "use strict";
 
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
 
-class List extends Component {
-  render() {
-    return (
-      <div>
-        List
-      </div>
-    );
-  }
-}
+const mapStateToProps = state => {
+  return { episodes: state.deck.map( card => ({
+    episode: card.episode,
+    title: card.title
+  } ) ) };
+};
 
-export default List;
+const CardDeck = ({ episodes }) => (
+  <ul>
+    {episodes.map( ep => (
+      <li key={ep.episode}>{ep.title}</li>
+    ))}
+  </ul>
+);
+
+export default connect(mapStateToProps, undefined)(CardDeck);
