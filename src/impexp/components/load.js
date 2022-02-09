@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 import { replaceDeck } from '../actions.js';
 import { REPLACE_DECK } from '../constants.js';
@@ -49,16 +50,16 @@ class LoadDeck extends Component {
         <div>
           <textarea
             placeholder='Paste a csv here'
-            rows='40'
+            rows='15'
             cols='64'
             value={this.state.value}
             onChange={this.handleChange}
           />
         </div>
-        <div style={{alignSelf: 'flex-end'}} >
-          <button name="upload" onClick={this.handleSubmit}>
+        <div>
+          <Button onClick={() => this.handleSubmit()}>
             Upload Carddeck
-          </button>
+          </Button>
         </div>
       </div>
     );

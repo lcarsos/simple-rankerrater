@@ -12,7 +12,7 @@ const CompareTwo = ({ cards, dispatch }) =>
   <div>
     <h1>Which is better?</h1>
     <div>
-      <Card idx={0} />
+      <Card idx={22} />
     </div>
     <div>
       <Card idx={1} />

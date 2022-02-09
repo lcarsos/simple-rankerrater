@@ -2,19 +2,20 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import Card from 'react-bootstrap/Card';
 
-const Card = ( props, dispatch ) => (
-  <div>
-    <div>
-      <img src={props.screenshot} />
-    </div>
-    <h3>{props.title}</h3>
-    <p>{props.synopsis}</p>
-  </div>
+const EpCard = ( props ) => (
+  <Card style={{ width: '25rem' }}>
+    <Card.Img variant="top" src={props.screenshot} />
+    <Card.Body>
+      <Card.Title>{props.title}</Card.Title>
+      <Card.Text>{props.synopsis}</Card.Text>
+    </Card.Body>
+  </Card>
 );
 
 const mapStateToProps = (state, { idx }) => ({
   ...state.deck[ idx ]
 });
 
-export default connect(mapStateToProps)(Card);
+export default connect(mapStateToProps)(EpCard);
